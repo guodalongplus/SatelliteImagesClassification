@@ -1,0 +1,6 @@
+model_checkpoint_path: "savemodel.ckpt-4960"
+all_model_checkpoint_paths: "savemodel.ckpt-4640"
+all_model_checkpoint_paths: "savemodel.ckpt-4720"
+all_model_checkpoint_paths: "savemodel.ckpt-4800"
+all_model_checkpoint_paths: "savemodel.ckpt-4880"
+all_model_checkpoint_paths: "savemodel.ckpt-4960"

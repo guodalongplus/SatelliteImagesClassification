@@ -1,0 +1,55 @@
+.clearfix:before,
+.clearfix:after{content: "";display: table;clear: both;}
+.clearfix{zoom:1;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+a{text-decoration: none;display:block;}
+li{list-style: none;}
+img{display: block;}
+.w{width: 940px;margin: 0 auto;}
+/* .dh{
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+} */
+.header{
+	height:30%;
+	padding-top: 20px;
+	
+}
+.wdht{
+	width: 100%;
+	background: rgb(65,105,225,0.6);
+	/* background: rgb(65,105,225,1); */
+}
+/*设置logo的位置*/
+.logo{
+	margin-left: 15px;
+}
+.logo img{
+	height: 70px;
+	
+}
+/*
+ * 设置导航条
+ */
+.nav{
+	float: right;
+	margin-top: 65px;
+}
+
+.nav li{
+	float: left;
+	padding: 0 10px 8px;
+}
+
+.nav li a{
+	color: white;
+	font: bold 14px Georgia;
+	text-decoration: none;
+	
+}
+
+.nav li a:hover{
+	color: rosybrown;
+	text-decoration: underline;
+}

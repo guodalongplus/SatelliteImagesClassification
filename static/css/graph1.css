@@ -1,0 +1,155 @@
+
+
+/* 整个图片区域格 */
+.contentCir {
+	width: 1500px;
+	height: 480px;
+}
+
+.bgc{
+	background-color: #0000FF;
+}
+
+/* 图片 */
+.picCir {
+	position: absolute;
+	margin: auto;
+	left: 266px;
+	width: 1000px;
+	height: 480px;
+	transition: opacity 0.7s linear;
+}
+
+/* 图片尺寸 */
+.imgCir {
+	width: 1000px;
+	height: 480px;
+}
+
+/* 所有圆 */
+.circleCir {
+	position: absolute;
+	bottom: 150px;
+	left: 700px;
+	font-size: 0;
+	line-height: 5px;
+	z-index: 999;
+}
+
+/* 每个小圆 */
+.circleCir>div {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: solid 1px #0055ff;
+	margin: 0 2px;
+	border-radius: 50%;
+}
+
+/* 鼠标触碰小圆 */
+.circleCir>div:hover{
+	background-color: #0055ff;
+}
+
+/* 按钮 */
+.btnCir {
+	position: absolute;
+	left: 320px;
+	top: 350px;
+	height: 100px;
+	width: 900px;
+	z-index: 999;
+}
+
+.btnCir>div {
+	display: none;
+	width: 40px;
+	height: 40px;
+	font-size: 50px;
+	line-height: 40px;
+	text-align: center;
+	color: #0055ff;
+	cursor: pointer;
+}
+
+.contentCir:hover .btnCir >div{
+	display: block;
+	width: 40px;
+	height: 40px;
+	font-size: 50px;
+	line-height: 40px;
+	text-align: center;
+	color: #0055ff;
+	cursor: pointer;
+}
+
+
+.btnCir>div:nth-child(1) {
+	float: left;
+}
+
+.btnCir>div:nth-child(2) {
+	float: right;
+}
+
+
+.boxallCir {
+	border: 1px solid rgba(25, 186, 139, .17);
+	padding: 0 .3rem .3rem .3rem;
+	background-size: 100% auto;
+	position: relative;
+	margin-bottom: .3rem;
+	z-index: 10;
+}
+
+.boxallCir #sbmassage p {
+	height: 100px;
+	text-align: center;
+	font-size: .3rem;
+	color: #c5ccff;
+	border: 1px solid blue;
+	style: block;
+}
+
+.boxallCir .butn input {
+	margin-top: 5px;
+	margin-left: 5px;
+	background: #0066CC;
+	color: white;
+}
+
+.boxallCir .butn #an2 {
+	float: right;
+}
+
+.boxallCir:before,
+.boxallCir:after {
+	position: absolute;
+	width: .3rem;
+	height: .3rem;
+	content: "";
+	border-top: 2px solid #02a6b5;
+	top: 0;
+}
+
+.boxallCir:before,
+.boxfoot:before {
+	border-left: 2px solid #02a6b5;
+	left: 0;
+}
+
+.boxallCir:after,
+.boxfoot:after {
+	border-right: 2px solid #02a6b5;
+	right: 0;
+}
+
+/* 轮播图删除小角 */
+.boxall1Cir {
+	border: 1px solid rgba(25, 186, 139, .17);
+	padding: 0 .3rem .3rem .3rem;
+	background-size: 100% auto;
+	position: relative;
+	margin-bottom: .3rem;
+	z-index: 10;
+}

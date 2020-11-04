@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图像识别与追踪</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/dht.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/nr.css"/>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script src="/static/js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- 轮播图css -->
+    <link rel="stylesheet" href="/static/css/graph1.css">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="dh">
+    <!-- 头部 -->
+    <header id="head" class="clearfix">
+        <div class="wdht clearfix">
+            <div class="header w">
+                <ul class="nav">
+                    <li>
+                        <a href="#">主页</a>
+                    </li>
+                    <li>
+                        <a class="picbreed">遥感图像分类</a>
+                    </li>
+                    <li>
+                        <a class="picdetected">生活场景图像分类</a>
+                    </li>
+                    <li>
+                        <a href="#">关于</a>
+                    </li>
+                </ul>
+                <div class="logo">
+                    <a href="#" title="VAI网站">
+                        <span style="font-size: 38px; color: #399BFF;">基于深度学习的遥感图像分类技术</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+<div class="all">
+    <!-- 轮播图 -->
+    <div class="contentCir" style="width: 100%;">
+        <div style="z-index: 6" class="picCir"><a href=""><img class="imgCir" src="/static/img/m1.jpg"></a></div>
+        <div style="z-index: 5" class="picCir"><a href=""><img class="imgCir" src="/static/img/m2.jpg"></a></div>
+        <div style="z-index: 4" class="picCir"><a href=""><img class="imgCir" src="/static/img/m3.jpg"></a></div>
+        <div style="z-index: 3" class="picCir"><a href=""><img class="imgCir" src="/static/img/m4.jpg"></a></div>
+        <div style="z-index: 2" class="picCir"><a href=""><img class="imgCir" src="/static/img/m5.jpg"></a></div>
+        <div style="z-index: 1" class="picCir"><a href=""><img class="imgCir" src="/static/img/m6.jpg"></a></div>
+        <div class="circleCir">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="btnCir">
+            <div>
+                &lt;
+            </div>
+            <div>&gt;
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 第一屏和第二屏过度 -->
+    <div id="fgx">
+        <h3>
+            倡导智慧、 高效、 准确的理念，让图片分类更加方便、快捷！
+        </h3>
+    </div>
+
+    <!-- 第二屏 -->
+    <div id="cpgn" class="clearfix">
+        <div class="xbt">
+            <p class="bt1">遥感图像分类</p>
+            <p class="btfs" >基于深度学习技术进行地物信息的识别，提取，分类，进行动态变化监测，以及专题地图制作，遥感图库的建立，设计初期各种格局指数的计算，以及安全格局的建立，都要以图像分类为基础。</p>
+        </div>
+        <!-- 左边 -->
+        <div class="mainbox">
+            <ul class="clearfix">
+                <li>
+                    <div class="boxall" style="width: 700px; height: 600px;
+							margin-left: 40px;">
+                        <div class="sycm">
+                            <ul class="clearfix">
+                                <!-- E-chars图表 -->
+                                <div class="map" style="margin-bottom: .8rem;
+											height: 80%;width:300px;margin-top: 30px;">
+                                    <li>
+                                        <div style="margin-left: 280px;">
+                                            <h2>模型训练情况</h2>
+                                        </div>
+                                    </li>
+                                    <div id="main1" style="width: 700px;height:250px;"></div>
+                                    <li>
+                                        <div style="margin-left: 280px;">
+                                            <h2>测试集损失值</h2>
+                                        </div>
+                                    </li>
+                                    <div id="main2" style="width: 700px;height:250px;"></div>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="boxfoot"></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- 右边 -->
+        <div class="tpq clearfix">
+            <div class="tpcz" style="position: absolute;top: -600px;left: 500px;width: 500px;height: 400px;">
+                {% if filename %}
+                <img style="width: 100%;height:100%" src="{{ url_for('display_image', filename=filename)}}" alt="pic">
+                {%else%}
+                <img style="width: 100%;height:100%" src="/static/img/xuanze.jpg" alt="pic">
+                {% endif %}
+                <form method="post" id="showDataForm" action="/upload1" enctype="multipart/form-data">
+					<div class="fileOne">
+						<input type="file" name="file" cautocomplete="off">
+						<input class="btn" type="submit" value="提交">
+					</div>
+                </form>
+            </div>
+        </div>
+        <div class="input" style="position: absolute;top: 1400px;left: 800px;">
+            <input type="text" class="scjg" readonly="readonly" style="width: 680px; "
+                   placeholder="模型分类结果为:{{ result_json|safe }}"/>
+        </div>
+    </div>
+
+    <!-- 第二屏和第三屏过渡 -->
+    <div id="fgx1"></div>
+
+    <!-- 第三屏 -->
+    <div id="cpgn1" class="clearfix">
+        <div class="xbt">
+            <p class="bt1">生活场景图像分类</p>
+            <p class="btfs"style="line-height: 30px">在自然场景中，图像分类可对工程测量中常见的事物进行检测，可以快速识别与标记。</p>
+        </div>
+
+ <!-- 下边 -->
+        <div class="Second">
+			<div class="inner"style="position: absolute;width: 500px;height: 400px;">
+				{% if filename1 %}
+				    <img style="width: 100%;height:100%" src="{{ url_for('display_image1',filenameone=filename1)}}" alt="pic">
+				{%else%}
+				    <img style="width: 100%;height:100%" src="/static/img/xuanze.jpg" alt="pic">
+                {% endif %}
+                    <form method="post" id="showDataForm1" action="/upload2" enctype="multipart/form-data">
+                        <div class="fileTwo">
+						    <input type="file" name="file" cautocomplete="off" required/>
+						    <input class="btn" id="upload" type="submit" value="提交">
+					    </div>
+                    </form>
+			</div>
+               <div class="input1" style="position: absolute;top: 2115px;left: 415px;">
+                   <input type="text" class="scjg" readonly="readonly" style="width: 680px;height: 40px;"
+                          placeholder="模型分类结果为:{{ result_json1|safe }}"/>
+               </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 底部 -->
+<div class="footer">
+    <div class="w">
+        <p class="copy">Copyright 2019. Studio VIA. All Rights Reserved.</p>
+        <p>VAI ancient poetry generator developed by VAI.</p>
+        <p>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Products</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </p>
+    </div>
+</div>
+
+<!-- 画布 -->
+<canvas id="canvas"></canvas>
+<!-- 主页js -->
+<script src="/static/js/index.js"></script>
+<!-- 动态折线图js -->
+<script type="text/javascript" src="/static/js/graphy1.js"></script>
+<script type="text/javascript" src="/static/js/graphy2.js"></script>
+<!-- 轮播图js -->
+<script type="text/javascript" src="/static/js/graphStyle1.js"></script>
+<!--页面内跳转	-->
+<script language="javascript" type="text/javascript">
+    $(function () {
+
+        $(".picbreed").click(function () {
+            $("#cpgn")[0].scrollIntoView(true);
+        });
+    });
+    $(function () {
+
+        $(".picdetected").click(function () {
+            $("#cpgn1")[0].scrollIntoView(true);
+        });
+    });
+</script>
+
+
+</body>
+</html>
