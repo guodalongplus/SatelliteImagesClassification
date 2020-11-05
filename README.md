@@ -1,6 +1,6 @@
 # SatelliteImagesClassification
 ###
-![display](https://img-blog.csdnimg.cn/20201029174426481.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0NjM1Njkx,size_16,color_FFFFFF,t_70)
+![display](https://github.com/guodalongplus/SatelliteImagesClassification/blob/master/display_Image/20201029174343704.png)
 ###
     improved_graph2        -可登录tensorboard 查看模型结构
     model1                 -生活场景分类的模型
